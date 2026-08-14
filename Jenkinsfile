@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS'
+        nodejs 'NodeJS-22'
     }
 
     stages {
@@ -25,19 +25,18 @@ pipeline {
         stage('Install Frontend Dependencies') {
             steps {
                 dir('frontend') {
-                    bat 'npm install --include=dev'
+                    bat 'npm install'
                 }
             }
         }
 
-        stage('Build React') {
-    steps {
-        dir('frontend') {
-            bat 'npm install'
-            bat 'npm run build'
+       stage('Build React') {
+            steps {
+                dir('frontend') {
+                    bat 'npm run build'
+                }
+            }
         }
-    }
-}
 
         stage('Deploy') {
             steps {
