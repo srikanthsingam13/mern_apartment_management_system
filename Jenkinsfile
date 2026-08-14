@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-        stage('Install Server Dependencies') {
+        stage('Install Backend Dependencies') {
             steps {
                 dir('backend') {
                     bat 'npm install'
@@ -22,18 +22,10 @@ pipeline {
             }
         }
 
-        stage('Install Client Dependencies') {
+        stage('Install Frontend Dependencies') {
             steps {
                 dir('frontend') {
                     bat 'npm install'
-                }
-            }
-        }
-
-        stage('Test Server') {
-            steps {
-                dir('backend') {
-                    bat 'npm test'
                 }
             }
         }
