@@ -16,7 +16,7 @@ pipeline {
 
         stage('Install Server Dependencies') {
             steps {
-                dir('server') {
+                dir('backend') {
                     bat 'npm install'
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
 
         stage('Install Client Dependencies') {
             steps {
-                dir('client') {
+                dir('frontend') {
                     bat 'npm install'
                 }
             }
