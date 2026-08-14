@@ -31,12 +31,13 @@ pipeline {
         }
 
         stage('Build React') {
-            steps {
-                dir('frontend') {
-                    bat 'npm run build'
-                }
-            }
+    steps {
+        dir('frontend') {
+            bat 'npm install'
+            bat 'npm run build'
         }
+    }
+}
 
         stage('Deploy') {
             steps {
