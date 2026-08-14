@@ -32,7 +32,7 @@ pipeline {
 
         stage('Test Server') {
             steps {
-                dir('server') {
+                dir('backend') {
                     bat 'npm test'
                 }
             }
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Build React') {
             steps {
-                dir('client') {
+                dir('frontend') {
                     bat 'npm run build'
                 }
             }
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 echo 'Starting MERN application...'
 
-                dir('server') {
+                dir('backend') {
                     bat 'start /B npm start'
                 }
             }
